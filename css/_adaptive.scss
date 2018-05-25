@@ -6,11 +6,21 @@
 *
 *
 /////////////////////////////////////*/
+	@media(min-width: 1900px){
+		.intro .photo{ top: 10%; right: 20%; }
+		.container{
+			padding: 0 20%;
+		}
+	}
+	@media(max-width: 1200px){
+		.intro .photo{ top: 5%; right: 0%; }
+	}
 	@media(max-width: 960px){
 		.intro{
 			.main-parametrs{
 				.main-parametrs__parametr{ width: 50%;}
 			}
+			.photo{ top: 15%; right: -10%; }
 		}
 
 		.projects{
@@ -19,6 +29,7 @@
 				.projects-content__description{ max-width: 100%;}
 			}
 		}
+
 	}
 
 	@media(max-width: 600px){
@@ -32,6 +43,10 @@
 			.main-parametrs{
 				.main-parametrs__parametr{ width: 50%;}
 			}
+			.photo{
+				right: -10%;
+				opacity: .5;
+			}
 		}
 	}
 
@@ -41,6 +56,7 @@
 		}
 		h1{ font-size: 3.5em }
 		.skills{ display: none;}
+		.intro .photo{ top: 5%; right: -50%; }
 	}
 
 	@media(max-width: 400px){

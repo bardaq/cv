@@ -8,6 +8,7 @@ html,body{
 	font-weight: 300;
 	line-height: 1.7em;
 	letter-spacing: 1px;
+	overflow-x: hidden !important;
 }
 .container{
 	display: flex;
