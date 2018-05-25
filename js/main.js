@@ -9,8 +9,7 @@ const colors = {
 	almostBlue: 'rgba(100, 250, 255, 0.03)'
 }
 const data = {
-	labels: [
-			'JS ES6', 'React.js', 'Node.js','MongoDB', 'Php', 'MySql', 'Webpack', 'Git', 'Gulp', 'Scss', 'Pug', 'Bootstrap', 'ScrollMagic', 'LoDash'],
+	labels: ['JS ES6', 'React.js', 'Node.js','MongoDB', 'Php', 'MySql', 'Webpack', 'Git', 'Gulp', 'Scss', 'Pug', 'Bootstrap', 'ScrollMagic', 'LoDash'],
 	datasets: [{
 		label: 'mySkills',
 		defaultFontFamily: 'serif',
