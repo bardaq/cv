@@ -12,7 +12,7 @@ const data = {
 	labels: [
 			'JS ES6', 'React.js', 'Node.js','MongoDB', 'Php', 'MySql', 'Webpack', 'Git', 'Gulp', 'Scss', 'Pug', 'Bootstrap', 'ScrollMagic', 'LoDash'],
 	datasets: [{
-		label: 'mySkills',a
+		label: 'mySkills',
 		defaultFontFamily: 'serif',
 		backgroundColor: colors.almostWhite,
 		borderColor: colors.white,
