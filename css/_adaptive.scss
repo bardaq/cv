@@ -1,0 +1,61 @@
+
+/* ////////////////////////////////////
+*
+*
+*         @MEDIA
+*
+*
+/////////////////////////////////////*/
+	@media(max-width: 960px){
+		.intro{
+			.main-parametrs{
+				.main-parametrs__parametr{ width: 50%;}
+			}
+		}
+
+		.projects{
+			.projects-content{
+				flex-direction: column;
+				.projects-content__description{ max-width: 100%;}
+			}
+		}
+	}
+
+	@media(max-width: 600px){
+		html,body{
+			font-size: 3vw;
+		}
+		.container{
+			padding: 0 2%;
+		}
+		.intro{
+			.main-parametrs{
+				.main-parametrs__parametr{ width: 50%;}
+			}
+		}
+	}
+
+	@media(max-width: 480px){
+		body,html{
+			font-size: 4vw;
+		}
+		h1{ font-size: 3.5em }
+		.skills{ display: none;}
+	}
+
+	@media(max-width: 400px){
+		.nav{
+			right: 0;
+			ul.nav-list{
+				text-align: center;
+				padding-left: 0;
+				li.nav-list__item{
+					margin: 0 1em;
+				}
+			}
+		}
+		.intro{
+			text-align: center;
+			p{ text-align: left;}
+		}
+	}

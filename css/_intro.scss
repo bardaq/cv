@@ -1,0 +1,33 @@
+/* ////////////////////////////////////
+*
+*
+*         INTRO
+*
+*
+/////////////////////////////////////*/
+
+	.intro{
+		padding: 100px 0;
+		position: relative;
+		overflow: hidden;
+		.photo{
+			// display: none;
+			position: absolute;
+			top: 0;
+			right: 10%;
+			z-index: 0
+		}
+		.container{ flex-direction: column }
+		.main-parametrs{
+			margin: 1em 0 3em 0;
+			.main-parametrs__parametr{
+				display: inline-block;
+				width: 170px;
+				b{
+					display: block;
+					color: $white;
+				}
+			}
+		}
+		p { max-width: 500px;}
+	}
