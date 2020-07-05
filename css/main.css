@@ -1,263 +1,148 @@
-/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
 html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
-}
-
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Vendor-prefixed and regular ::selection selectors cannot be combined:
- * https://stackoverflow.com/a/16982510/7133471
- *
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
   margin: 0;
-  padding: 0;
+  position: relative;
+  font-family: 'Exo 2', sans-serif;
+  color: #f8f8f8;
+  background-color: #0f0f0f;
+  padding: 0 200px;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
+h1 {
+  font-size: 120px;
+  line-height: .87em;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
+h2 {
+  font-size: 80px;
+  line-height: .87em;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
+h3 {
+  font-size: 24px;
+  line-height: 1.6em;
+  font-weight: 200;
+}
 
-.sr-only {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
+p {
+  font-weight: 200;
+  line-height: 1.6em;
+}
+
+ul.tags {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+
+  flex-wrap: nowrap;
+  padding-left: 0;
+}
+
+ul.tags li {
+  display: flex;
+  font-size: 12px;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid white;
+  border-radius: 2rem;
+  line-height: 1em !important;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  margin: 0 1rem 1rem 0;
+  padding: .5rem 1rem;
+}
+
+
+/* INTRO */
+#intro {
+  display: flex;
+  position: relative;
+  align-items: center;
+  min-height: 100vh;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+#intro canvas {
+  opacity: .5;
+}
+
+#intro .content {
   position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
+  max-width: 50%;
 }
 
-/*
- * Extends the .sr-only class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.sr-only.focusable:active,
-.sr-only.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
+#intro .social {
+  position: absolute;
+  list-style: none;
+  right: 0;
+}
+#intro .social ul { list-style: none; }
+#intro .social ul li {
+  border: 1px solid white;
+  padding: .5rem;
+  border-radius: 2rem;
+  text-align: center;
+  margin-top: 2rem;
 }
 
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
+#intro h3 mark{
+  background: #0f0f0f;
+  color: #f8f8f8;
 }
 
-/*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: " ";
-  display: table;
+/* EXPERIENCE */
+#experience {
+  padding: 50px 0;
+}
+#experience .grid-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+#experience .grid-wrapper .item {
+  padding: 1rem;
+  min-width: 250px;
 }
 
-.clearfix::after {
-  clear: both;
+
+#chalanges .grid-wrapper {
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#chalanges .grid-wrapper .item {
+  padding: 1rem;
+  max-width: 600px; 
 }
 
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
 
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
 
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
 
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
 
-@media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  /*
-   * Printing Tables:
-   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
-   */
-  thead {
-    display: table-header-group;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
+@media (max-width: 768px) {
+  html {
+    padding: 0 50px;
   }
 }
 
+
+@media (max-width: 375px) {
+  /* INTRO */
+  h1 {
+    font-size: 72px;
+    line-height: .87em;
+    font-weight: 700;
+  }
+
+  #intro {
+    padding-left: 1rem;
+  }
+
+  #intro canvas {
+    opacity: .3;
+  }
+}

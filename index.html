@@ -16,6 +16,9 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;800&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 
@@ -23,13 +26,100 @@
 </head>
 
 <body>
+  <section id="intro">
+    <div class="content">
+      <h1>Dmitry Klymenko</h1>
+      <h3><mark>A web developer with 4 year experience<br/>React.js | Typescript | Node.js</mark></h3>
+    </div>
+    <div class="social">
+      <ul>
+        <li>Li</li>
+        <li>In</li>
+        <li>Fb</li>
+        <li>Be</li>
+      </ul>
+    </div>
+  </section>
+  <section id="experience">
+    <h2>Tech experience</h2>
+    <div class="grid-wrapper">
+      <div class="item">
+        <h3>React.js</h3>
+        <p>Have been building dashboards. Havy tables with filtering and sorting, charts and graphics, list with virtualization, tricky forms and so on.</p>
+      </div>
+      <div class="item">
+        <h3>Redux.js</h3>
+        <p>Have experince with <b>thunks</b>, <b>sagas</b> and <b>observables</b>. Prefer thunks.</p>
+      </div>
+      <div class="item">
+        <h3>Node.js</h3>
+        <p>Have been buildend web servers. Mostly is was HTTP backend using <b>Express.js</b>, but also have built a light proxy server, worked with <b>sockets.io</b> and i still usualy use node to write small scripts like web scrubbers or text file parsers.</p>
+      </div>
+      <div class="item">
+        <h3>Other</h3>
+        <p>A fun of Typescript.</p>
+      </div>
+    </div>
+  </section>
+  <section id="chalanges">
+    <h2>Projects</br>& chalanges</h2>
+    <div class="grid-wrapper">
+      <div class="item">
+        <h3>Migration to monorepo</h3>
+        <ul class="tags">
+          <li>lerna.js</li>
+          <li>Monorepository</li>
+          <li>40 mb bundle</li>
+          <li>1 task => n pull requst</li>
+        </ul>
+        <p>
+          <b>The problem</b></br>
+          There was a 6 separate projects. First - The portal which is a react app that loads other apps.
+          Being a separate entry point was a requirmens from business side. Another 3 are basic dasboards the 5-th is an our UI Framework and the last one is a proxy server.
+          Everything were in separate repositories and the first painfull thing was having a 5 terminal sessions open just to make it running.
+          The second issue was that task may impact a few module, usualy it UI Framework and one of the app. One task in JIRA - at least 2 pull request in fact.
+          Manual testers had to pay attantion if there are correct versions of each app deployed, of curse there where a havy long pipeline and it just took about 15-20 minutes to deploy it.
+          Why so long? Becouse since UI Framework was a separate project – we had to compile it and inject the buid into outher app. The weight of the final build was almost 40 mb.</br>
+          </br><b>The solution</b></br>
+          The implemented of the solution took about 50 hour. I moved projects to a monorepo using Lerna.js to make a convinient single script to run and to build the project. It let me acheave the flow like 1 task - 1 pull request, and the ability to connect the UI Framework as a npm package.
+          Despite the dev experience become much better on the project, what was the main goal, also the bundle size and as consiquence the page loading speed decreased in almost 4 times.
+        </p>
+      </div>
+      <div class="item">
+        <h3>Custom OAuth2 implelemntation</h3>
+        <ul class="tags">
+          <li>Microsoft</li>
+          <li>Single Sign On</li>
+          <li>Auth</li>
+        </ul>
+        <p>You may currious why not just use MSAL.js or ADAL.js ?...</p>
+      </div>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
+      <div class="item">
+        <h3>The archintecture of a peppeter.js pet project</h3>
+        <ul class="tags">
+          <li>Puppetter.js</li>
+          <li>Concurrency</li>
+          <li>Automatisation</li>
+        </ul>
+        <p>A long story short...</p>
+      </div>
+
+      <div class="item">
+        <h3>Small e-commerse on Node.js</h3>
+        <ul class="tags">
+          <li>Crawler/Scrabber</li>
+          <li>Node.js with Strapi.io</li>
+          <li>Automatisation</li>
+          <li>Mongo.js</li>
+        </ul>
+        <p>Scrapper to XLS, the new ui, backend, cron task to run crawler/scrapper and update price</p>
+      </div>
+    </div>
+  </section>
+
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-
+  <script type="module" src="js/main.js"></script>
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <!-- <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
