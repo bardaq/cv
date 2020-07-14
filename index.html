@@ -26,98 +26,167 @@
 </head>
 
 <body>
+  <nav>
+    <ul>
+      <li>experience</li>
+      <li>contacts</li>
+      <li class="download-cv"><img src="static/img/download.svg"/>CV.pdf</li>
+    </ul>
+  </nav>
   <section id="intro">
-    <div class="content">
-      <h1>Dmitry Klymenko</h1>
-      <h3><mark>A web developer with 4 year experience<br/>React.js | Typescript | Node.js</mark></h3>
-    </div>
-    <div class="social">
-      <ul>
-        <li>Li</li>
-        <li>In</li>
-        <li>Fb</li>
-        <li>Be</li>
-      </ul>
-    </div>
+    <h1>Dmitry Klymenko</h1>
+    <h3><mark>A senior web developer with 4&nbsp;year experience<br/>JS/TS | React.js | Node.js</mark></h3>
+    <ul class="social">
+      <li>Li</li>
+      <li>In</li>
+      <li>Fb</li>
+      <li>Be</li>
+    </ul>
   </section>
-  <section id="experience">
-    <h2>Tech experience</h2>
+
+  <section id="tech-stack">
+    <h2>Tech stack</h2>
     <div class="grid-wrapper">
       <div class="item">
         <h3>React.js</h3>
-        <p>Have been building dashboards. Havy tables with filtering and sorting, charts and graphics, list with virtualization, tricky forms and so on.</p>
-      </div>
-      <div class="item">
-        <h3>Redux.js</h3>
-        <p>Have experince with <b>thunks</b>, <b>sagas</b> and <b>observables</b>. Prefer thunks.</p>
+        <p>Have been building dashboards: havy tables with filtering and sorting, charts and graphics, long lists with virtualization, tricky forms and&nbsp;so&nbsp;on.</p>
+        <p>Have experince with <b>thunks</b>, <b>sagas</b> and <b>observables</b>. Still prefer thunks.</p>
       </div>
       <div class="item">
         <h3>Node.js</h3>
-        <p>Have been buildend web servers. Mostly is was HTTP backend using <b>Express.js</b>, but also have built a light proxy server, worked with <b>sockets.io</b> and i still usualy use node to write small scripts like web scrubbers or text file parsers.</p>
+        <p>Have been developing APIs. Mostly is was HTTP backend using <b>Express.js</b>, but also have built a light proxy server, worked with <b>sockets.io</b> and i still usualy use node to get small work done like web scrubbers or text file parsers.</p>
       </div>
       <div class="item">
-        <h3>Other</h3>
-        <p>A fun of Typescript.</p>
+        <h3>Databases</h3>
+        <p>Usualy run prototypes using MongoDB with mongoose, but also have experience with Postgres and MySQLi at WordPress times.</p>
       </div>
     </div>
   </section>
-  <section id="chalanges">
-    <h2>Projects</br>& chalanges</h2>
+
+
+  <section id="cases">
+    <h2>A few Cases</h2>
     <div class="grid-wrapper">
       <div class="item">
-        <h3>Migration to monorepo</h3>
+        <h3>1. Migration to a monorepo</h3>
         <ul class="tags">
           <li>lerna.js</li>
           <li>Monorepository</li>
-          <li>40 mb bundle</li>
-          <li>1 task => n pull requst</li>
+          <li>42 mb bundle</li>
         </ul>
+        <h4>The problem</h4>
         <p>
-          <b>The problem</b></br>
           There was a 6 separate projects. First - The portal which is a react app that loads other apps.
           Being a separate entry point was a requirmens from business side. Another 3 are basic dasboards the 5-th is an our UI Framework and the last one is a proxy server.
           Everything were in separate repositories and the first painfull thing was having a 5 terminal sessions open just to make it running.
           The second issue was that task may impact a few module, usualy it UI Framework and one of the app. One task in JIRA - at least 2 pull request in fact.
           Manual testers had to pay attantion if there are correct versions of each app deployed, of curse there where a havy long pipeline and it just took about 15-20 minutes to deploy it.
           Why so long? Becouse since UI Framework was a separate project – we had to compile it and inject the buid into outher app. The weight of the final build was almost 40 mb.</br>
-          </br><b>The solution</b></br>
+        </p>
+        <h4>The solution</h4>
+        <p>
           The implemented of the solution took about 50 hour. I moved projects to a monorepo using Lerna.js to make a convinient single script to run and to build the project. It let me acheave the flow like 1 task - 1 pull request, and the ability to connect the UI Framework as a npm package.
           Despite the dev experience become much better on the project, what was the main goal, also the bundle size and as consiquence the page loading speed decreased in almost 4 times.
         </p>
       </div>
       <div class="item">
-        <h3>Custom OAuth2 implelemntation</h3>
+        <h3>2. OAuth2 with a Single Sign On</h3>
         <ul class="tags">
           <li>Microsoft</li>
           <li>Single Sign On</li>
-          <li>Auth</li>
+          <li>OAuth2</li>
         </ul>
-        <p>You may currious why not just use MSAL.js or ADAL.js ?...</p>
+        <h4>The goal</h4>
+          <p>Setup a seamless single sign on authorization withing 3rd party react.js app and a MS Dynamics 365.</br></p>
+          <h4>The problem</h4>
+            <p>
+              You may currious why not just use MSAL.js or ADAL.js? Becouse it doesn't work with on premise instance ver of 2012 year.
+              Even after update on a slightly newer version it didn't start supporting a implicit grant flow.
+            </p>
+            <h4>The solution</h4>
+            <p>The solution was a custom implementation of a OAuth2 authorization with code grant flow (<a href="https://tools.ietf.org/html/rfc6749#page-24">description of the protocol</a>)
+            I have set up a tiny proxy server using clean node.js with just a few enpoints – one to obtain an access token from request with auth code and another one to refresh it.
+            On the client side, we had a react.js, so i wrapped whole app in an <AuthGuard/> component wich simply looks if we have an acces token.
+            On every request to the API i handle 401 error code response and try to refresh the token and retry the request. If the attempt to refresh has failed – i remove session from redux store what lead to get authorization flow running. </p>
       </div>
 
       <div class="item">
-        <h3>The archintecture of a peppeter.js pet project</h3>
+        <h3>3. The archintecture of a peppeter.js pet project</h3>
         <ul class="tags">
           <li>Puppetter.js</li>
           <li>Concurrency</li>
           <li>Automatisation</li>
         </ul>
-        <p>A long story short...</p>
+        <h4>The goal</h4>
+          <p>Make a program wich automatising some set of user actions with an API to run/pause/stop the flow and modify some settings of it.</p>
+          <h4>The problem 0 – restriction of reaching the resourse within a headleass browsers</h4>
+          <p>If you are requesting a page using a headless browser the resourse had answered with an empty http page. Hiding of the puppeters http header hadn't helped. It turned out that the resource had been cheking window.chrome property and headless chrome had been sending it undefined.<br><b>The solution</b> was to manually put that object on its place before a chrome initialization.</p>
+          <h4>The problem 1 – the interrupted flow issue</h4>
+          <p>
+            There were some suddend events that need all flows getting paused: popping uped modals, capthchas, ended session consiquently reauthorization.
+            But flow is a bunch of functions, wich can be interrap. To resume flow from the particular part of a function i decided to get a state.
+            An attempt to resolve it with a <a href="https://github.com/jakesgordon/javascript-state-machine">state machine</a> had failed becouse it turned into a total mess to describe about hundred of each flows states.
+            <br/>So in the end it had been <b>Solved</b> with turning every flow function in generators and write a custom iterator wich will be checking every `.next()` if flow paused of not. 
+            To know if flow is paused i simply added a property wich defined the state of the app `boolean isPaused`. <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">MutationObserver</a> was wathcing on dom mutaions and if there some of those heppened it sended an even with type of event.
+            The event handler seted isPaused true (iterator just started waiting it to become false again), started appropriate handler, that closes a popup, resolvs captcha, etc., and resumed the flow then by seting isPaused false.
+          </p>
+        </p>
       </div>
-
       <div class="item">
-        <h3>Small e-commerse on Node.js</h3>
-        <ul class="tags">
-          <li>Crawler/Scrabber</li>
-          <li>Node.js with Strapi.io</li>
-          <li>Automatisation</li>
-          <li>Mongo.js</li>
-        </ul>
-        <p>Scrapper to XLS, the new ui, backend, cron task to run crawler/scrapper and update price</p>
+        <p>
+          <b>The problem 2 – captcha</b><br/>
+          <a href="https://www.youtube.com/watch?v=6iBcogz7hV8">Here is an example</a> This is the Fun Captha and I, most likely a human, cannot solve it with a first attempt since there was 10 up to 20 pictures in a row, sometimes for couple times, with no options to make a single mistake.
+          On those days there was no options to solve it automaticle, so i decided to translate it to the Front-end to get it solved there by humans manualy.
+          <br/><b>BUT</b> if show it in iframe it solves in local iframe but not on the resource page, and  i wasn't able to syncronize it, pass the resoult of the solution, and failed to make it works anyhow.
+          <br/><b>The solution</b>
+          When I got captha I set up a socket connection between the automatization instance (wich live on a separate domain, but just a regular node.js app) and the Front-end.
+          I made a screen shot of captcha, encode it in base64, sent it to front end.
+          The front end showd a captcha popup, counted a users click coordinate relatevely to the screenshot, and send the ccordinates back, where i emulated a click on the point of the screeen with corresponding coordinates.
+          <br/>I consider it to be my the most freakiest crutch ever 😅
+        </p>
       </div>
-    </div>
+      <!-- 
+        <div class="item">
+          <h3>4. Small e-commerse on Node.js</h3>
+          <ul class="tags">
+            <li>Crawler/Scrabber</li>
+            <li>Node.js with Strapi.io</li>
+            <li>Automatisation</li>
+            <li>Mongo.js</li>
+          </ul>
+          <p>Scrapper to XLS, the new ui, backend, cron task to run crawler/scrapper and update price</p>
+          <b>The goal</b><br/>
+          Make a program wich automatising some set of user actions with an API to run/pause/stop the flow and modify some settings of it.</br>
+          
+          <br/><b>The problem 0 – restriction of reaching the resourse within a headleass browsers</b><br/>
+          If you are requesting a page using a headless browser the resourse had answered with an empty http page. Hiding of the puppeters http header hadn't helped. It turned out that the resource had been cheking window.chrome property and headless chrome had been sending it undefined.        
+        </div>
+
+        
+        <div class="item">
+          <h3>5. I wish i have a better memory</h3>
+          <ul class="tags">
+            <li>forgetting</li>
+            <li>a lot of</li>
+            <li>interesting </li>
+            <li>things</li>
+          </ul>
+          <p>Unfortunately it is all i remind on the moment. Hope it is fine to make a first imression.</p>
+        </div>
+      </div> -->
   </section>
 
+  <section id="contacts">
+    <h2>Contacts</h2>
+    <div class="grid-wrapper">
+      <p>Phone – +380671380074</p>
+      <p>Email – bardaq@icloud.com</p>
+    </div>
+    </section>
+    
+  <footer>
+    <p><small>&copy; Dmitry Klymenko 2020</small></p>
+  </footer>
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script type="module" src="js/main.js"></script>
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->

@@ -17,9 +17,15 @@ animate();
 document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 
 function init() {
-    container = document.createElement('div', 'head');
-    introSection = document.getElementById('intro');
-    introSection.appendChild( container );
+    container = document.createElement('div');
+    container.setAttribute('id', 'head');
+    container.setAttribute ('style', `
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+    `);
+    document.body.appendChild( container );
     
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
     camera.position.z = 5;
@@ -71,7 +77,7 @@ function animate() {
 
 function render() {
     if (camera.position.x > 1.2 || camera.position.x < -0.6) xDirection = !xDirection;
-    camera.position.y += ( mouseY - camera.position.y ) * yMouseRatio;
+    // camera.position.y += ( mouseY - camera.position.y ) * yMouseRatio;
     // else if (camera.position.y > -1.3 && camera.position.y < 1.3) {
     //     camera.position.y += ( mouseY - camera.position.y ) * yMouseRatio;
     // }
