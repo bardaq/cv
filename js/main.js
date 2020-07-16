@@ -1,10 +1,7 @@
-// import * as THREE from './vendor/three/build/three.module.js';
 import * as THREE from './vendor/three.module.js';
-import head from '../static/model/head-half.js'
+import head from '../static/head-half.js'
 
-var introSection;
 var xDirection = true;
-var yMouseRatio = .001;
 var container;
 var camera, scene, renderer;
 var mouseX = 0, mouseY = 0;
