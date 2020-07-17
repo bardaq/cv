@@ -68,8 +68,8 @@ function onDocumentMouseMove( event ) {
 function animate() {
     requestAnimationFrame( animate );
     render();
-    if (xDirection) camera.position.x += .002;
-    else camera.position.x -= .002;
+    if (xDirection) camera.position.x += .004;
+    else camera.position.x -= .004;
 }
 
 function render() {

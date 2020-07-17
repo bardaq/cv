@@ -142,7 +142,7 @@ section {
 #contacts p { margin-top: 1rem }
 #contacts .grid-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;      
+  grid-template-columns: 1fr;      
 }
 #contacts .item:last-of-type {
   align-self: end;
